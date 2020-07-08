@@ -157,7 +157,7 @@ function library:CreateWindow(WName)
 
         Container:TweenSize(targetSize, targetDirection, "Linear", 0.15, true)
 	end)
-	print("Some of wally's functions was used :)")
+	
 	function ui:Resize()
         local y = 37
         for i, v in pairs(Container:GetChildren()) do
