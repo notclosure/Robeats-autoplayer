@@ -544,7 +544,7 @@ function library:CreateWindow(WName)
 	pcall(function()
 		game:GetService("StarterGui"):SetCore("SendNotification", {
         	Title = "YoungStars Lib V1",
-        	Text = "Made by YoungStar#0001",
+        	Text = "UI made by YoungStar#0001",
         	Duration = 5
    	 	})
 	end)
