@@ -1641,6 +1641,8 @@ do
 		
 		utility:DraggingEnded(function()
 			dragging = false
+				value = self:updateSlider(slider, nil, nil, min, max, value)
+				callback(value)
 		end)
 
 		slider.MouseButton1Down:Connect(function(input)
@@ -1650,7 +1652,6 @@ do
 				utility:Tween(circle, {ImageTransparency = 0}, 0.1)
 				
 				value = self:updateSlider(slider, nil, nil, min, max, value)
-				callback(value)
 				
 				utility:Wait()
 			end
@@ -1659,14 +1660,7 @@ do
 			utility:Tween(circle, {ImageTransparency = 1}, 0.2)
 		end)
 		
-		textbox.FocusLost:Connect(function()
-			if not tonumber(textbox.Text) then
-				value = self:updateSlider(slider, nil, default or min, min, max)
-				callback(value)
-			end
-		end)
-		
-		textbox:GetPropertyChangedSignal("Text"):Connect(function()
+				local function somethingidk()
 			local text = textbox.Text
 			
 			if not allowed[text] and not tonumber(text) then
@@ -1685,6 +1679,14 @@ do
 						text = min
 						end
 				value = self:updateSlider(slider, nil, tonumber(text) or value, min, max)
+				callback(value)
+			end
+		end
+		
+		textbox.FocusLost:Connect(function()
+				somethingidk()
+			if not tonumber(textbox.Text) then
+				value = self:updateSlider(slider, nil, default or min, min, max)
 				callback(value)
 			end
 		end)
