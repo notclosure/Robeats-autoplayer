@@ -1641,8 +1641,6 @@ do
 		
 		utility:DraggingEnded(function()
 			dragging = false
-				value = self:updateSlider(slider, nil, nil, min, max, value)
-				callback(value)
 		end)
 
 		slider.MouseButton1Down:Connect(function(input)
@@ -1651,11 +1649,10 @@ do
 			while dragging do
 				utility:Tween(circle, {ImageTransparency = 0}, 0.1)
 				
-				value = self:updateSlider(slider, nil, nil, min, max, value)
-				
+				value = self:updateSlider(slider, nil, nil, min, max, value)					
 				utility:Wait()
 			end
-			
+			callback(value)
 			wait(0.5)
 			utility:Tween(circle, {ImageTransparency = 1}, 0.2)
 		end)
