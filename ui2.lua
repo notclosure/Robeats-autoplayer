@@ -1630,6 +1630,12 @@ do
 		local dragging, last
 		
 		local callback = function(value)
+			if value > max then
+				value = max
+			end
+			if value < min then
+				value = min
+			end
 			if callback then
 				callback(value, function(...)
 					self:updateSlider(slider, ...)
