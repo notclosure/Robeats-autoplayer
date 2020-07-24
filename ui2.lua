@@ -1630,12 +1630,6 @@ do
 		local dragging, last
 		
 		local callback = function(value)
-			if value > max then
-				value = max
-			end
-			if value < min then
-				value = min
-			end
 			if callback then
 				callback(value, function(...)
 					self:updateSlider(slider, ...)
@@ -1677,7 +1671,19 @@ do
 			
 			if not allowed[text] and not tonumber(text) then
 				textbox.Text = text:sub(1, #text - 1)
-			elseif not allowed[text] then	
+			elseif not allowed[text] then
+				if value > max then
+						value = max
+						end
+					if value < min then
+						value = min
+						end
+									if tonumber(text) > max then
+						text = max
+						end
+					if tonumber(text) < min then
+						text = min
+						end
 				value = self:updateSlider(slider, nil, tonumber(text) or value, min, max)
 				callback(value)
 			end
