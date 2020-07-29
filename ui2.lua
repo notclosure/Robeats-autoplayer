@@ -465,7 +465,7 @@ do
 		
 		self.toggling = true
 		
-		local container = self.container.Main
+		local container = game.CoreGui["Robeats!"].Main
 		local topbar = container.TopBar
 		
 		if self.position then
