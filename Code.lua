@@ -1,4 +1,3 @@
---i am not hating on sirhurt too many people leave my server because my script crashes sirhurt
 if is_sirhurt_closure then
   return game:GetService("Players").LocalPlayer:Kick("Supported exploits: Synapse or KRNL")
 end
